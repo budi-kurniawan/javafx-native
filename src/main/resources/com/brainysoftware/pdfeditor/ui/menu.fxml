@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<?import javafx.scene.*?> 
+<?import javafx.scene.control.*?> 
+<?import javafx.scene.layout.*?> 
+<?import javafx.geometry.Insets?> 
+<?import javafx.scene.image.Image?> 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.*?>
+
+<MenuBar xmlns:fx="http://javafx.com/fxml" fx:id="menuBar" 
+        fx:controller="com.brainysoftware.pdfeditor.ui.MenuController">
+    <menus>
+        <Menu mnemonicParsing="true" text="_File" fx:id="fileMenu">
+            <items>
+                <MenuItem text="_New" accelerator="Shortcut+N"/>
+                <MenuItem text="_Open" onAction="#handleOpenDocument" accelerator="Shortcut+O"/>
+                <Menu fx:id="recentDocumentsMenu" disable="true" text="Recent Documents"/>
+                <SeparatorMenuItem/>
+                <MenuItem fx:id="saveDocumentMenuItem" mnemonicParsing="true" text="_Save" accelerator="Shortcut+S" disable="true" onAction="#handleSaveDocument"/>
+                <MenuItem fx:id="saveAsDocumentMenuItem" text="Save As" disable="true" onAction="#handleSaveAsDocument"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="E_xit" accelerator="Shortcut+X" mnemonicParsing="true" onAction="#handleExit"/>
+            </items>
+        </Menu>
+        <Menu fx:id="documentMenu" text="Document" visible="false">
+            <items>
+                <MenuItem text="Insert Image" onAction="#handleInsertImage"/>
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="true" text="_Help" fx:id="helpMenu">
+            <items>
+                <MenuItem text="Search" disable="true"/>
+                <MenuItem text="Online Manual" visible="false"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="About" onAction="#handleAboutAction"/>
+            </items>
+        </Menu>
+    </menus>
+</MenuBar>

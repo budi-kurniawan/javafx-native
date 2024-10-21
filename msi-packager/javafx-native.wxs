@@ -1,0 +1,56 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+    Name="PDFEditor"
+    Manufacturer="BrainySoftware"
+    Version="1.0.0"
+    UpgradeCode="bc5d0596-984c-4698-9164-0f8d89442830"
+  >
+    <MediaTemplate EmbedCab="yes" />
+    <Icon Id="myIcon" SourceFile="msi-packager/gorilla.ico" />
+    <Property Id="ARPPRODUCTICON" Value="myIcon" />
+    
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="!(bind.Property.ProductName)" />
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ApplicationProgramsFolder" Name="!(bind.Property.ProductName)" />
+    </StandardDirectory>
+    <ComponentGroup Id="MyComponents">
+      <Component
+        Id="App"
+        Guid="7d3f9b16-7c8b-4798-becf-a48d87152f08"
+        Directory="INSTALLFOLDER"
+      >
+        <File Source="target/gluonfx/x86_64-windows/pdfeditor.exe" />
+        <File Source="target/gluonfx/x86_64-windows/awt.dll" />
+        <File Source="target/gluonfx/x86_64-windows/java.dll" />
+        <File Source="target/gluonfx/x86_64-windows/javajpeg.dll" />
+        <File Source="target/gluonfx/x86_64-windows/jvm.dll" />
+        <File Source="target/gluonfx/x86_64-windows/lcms.dll" />
+        
+        <Shortcut
+            Id="MyDesktopShortcut"
+            Name="PDFEditor"
+            Description="PDF Editor"
+            Target="[INSTALLFOLDER]pdfeditor.exe"
+            WorkingDirectory="INSTALLFOLDER"
+            Icon="myIcon"
+            IconIndex="0"
+            Directory="DesktopFolder"/>
+
+        <Shortcut
+            Id="MyStartMenuShortcut"
+            Name="PDFEditor"
+            Description="PDF Editor"
+            Target="[INSTALLFOLDER]pdfeditor.exe"
+            WorkingDirectory="INSTALLFOLDER"
+            Icon="myIcon"
+            IconIndex="0"
+            Directory="ApplicationProgramsFolder"/>
+      </Component>
+    </ComponentGroup>
+    <Feature Id="App">
+      <ComponentGroupRef Id="MyComponents" />
+    </Feature>
+  </Package>
+</Wix>

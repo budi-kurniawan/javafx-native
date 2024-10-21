@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import javafx.scene.*?> 
+<?import javafx.scene.control.*?> 
+<?import javafx.scene.layout.*?> 
+<?import javafx.geometry.Insets?> 
+<?import javafx.scene.image.Image?> 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.collections.*?>
+<?import com.brainysoftware.pdfeditor.ui.component.ImageStackPane?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.brainysoftware.pdfeditor.ui.MainController"
+        prefWidth="1000" prefHeight="600"
+        onKeyPressed="#handleKeyInput">
+    <top>
+        <VBox>
+            <fx:include fx:id="menuBar" source="menu.fxml"/>
+<!--
+            <fx:include fx:id="toolBar" source="toolbar.fxml"/>
+-->
+        </VBox>
+    </top>
+    <center>
+        <SplitPane orientation="HORIZONTAL" dividerPositions="0.2f, 0.8f">
+            <items>
+            	<ScrollPane>
+	                <VBox fx:id="thumbnailContainer" spacing="10"/>
+                </ScrollPane>
+                <ScrollPane>
+	                <ImageStackPane fx:id="imageStackPane"/>
+                </ScrollPane>
+            </items>
+        </SplitPane>
+    </center> 
+</BorderPane>
