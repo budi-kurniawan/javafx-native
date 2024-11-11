@@ -1,9 +1,9 @@
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
   <Package
-    Name="PDFEditor"
+    Name="JavaFX-Native"
     Manufacturer="BrainySoftware"
     Version="1.0.0"
-    UpgradeCode="bc5d0596-984c-4698-9164-0f8d89442830"
+    UpgradeCode="ac5d0596-984c-4698-9164-0f8d89442830"
   >
     <MediaTemplate EmbedCab="yes" />
     <Icon Id="myIcon" SourceFile="msi-packager/gorilla.ico" />
@@ -21,7 +21,7 @@
         Guid="7d3f9b16-7c8b-4798-becf-a48d87152f08"
         Directory="INSTALLFOLDER"
       >
-        <File Source="target/gluonfx/x86_64-windows/pdfeditor.exe" />
+        <File Source="target/gluonfx/x86_64-windows/javafx-native.exe" />
         <File Source="target/gluonfx/x86_64-windows/awt.dll" />
         <File Source="target/gluonfx/x86_64-windows/java.dll" />
         <File Source="target/gluonfx/x86_64-windows/javajpeg.dll" />
@@ -30,9 +30,9 @@
         
         <Shortcut
             Id="MyDesktopShortcut"
-            Name="PDFEditor"
-            Description="PDF Editor"
-            Target="[INSTALLFOLDER]pdfeditor.exe"
+            Name="JavaFX-Native"
+            Description="JavaFX-Native"
+            Target="[INSTALLFOLDER]javafx-native.exe"
             WorkingDirectory="INSTALLFOLDER"
             Icon="myIcon"
             IconIndex="0"
@@ -40,9 +40,9 @@
 
         <Shortcut
             Id="MyStartMenuShortcut"
-            Name="PDFEditor"
-            Description="PDF Editor"
-            Target="[INSTALLFOLDER]pdfeditor.exe"
+            Name="JavaFX-Native"
+            Description="JavaFX-Native"
+            Target="[INSTALLFOLDER]javafx-native.exe"
             WorkingDirectory="INSTALLFOLDER"
             Icon="myIcon"
             IconIndex="0"
